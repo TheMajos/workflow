@@ -49,7 +49,6 @@ class TaskManagerApp:
                 self.clear_screen()
 
     async def login_screen(self):
-
         while True:
             print("--- Login ---")
             email = input("Enter your email: ").strip()
@@ -65,7 +64,6 @@ class TaskManagerApp:
                     await self.menu()
                     return
 
-                retries += 1
                 print("\nPassword is incorrect")
                 time.sleep(1)
                 self.clear_screen()
@@ -77,20 +75,16 @@ class TaskManagerApp:
                 return
 
             except UserDoesNotExists:
-                retries += 1
                 print("\nUser does not exist")
                 time.sleep(1)
                 self.clear_screen()
 
             except ValidationError as e:
-                retries += 1
                 print(f"\nValidation Error: {e}")
                 time.sleep(1)
                 self.clear_screen()
 
     async def register_screen(self):
-        retries = 0
-
         while True:
             print("--- Register ---")
             email = input("Enter your email: ").strip()
@@ -114,37 +108,31 @@ class TaskManagerApp:
                 return
 
             except UserExists:
-                retries += 1
                 print("\nUser already exists.")
                 time.sleep(1)
                 self.clear_screen()
 
             except PasswordTooShort:
-                retries += 1
                 print("\nPassword must be 8 characters or longer.")
                 time.sleep(1)
                 self.clear_screen()
 
             except InvalidEmail:
-                retries += 1
                 print("\nInvalid email format.")
                 time.sleep(1)
                 self.clear_screen()
 
             except PasswordTooLong:
-                retries += 1
                 print("\nPassword must be under 255 characters.")
                 time.sleep(1)
                 self.clear_screen()
 
             except EmailTooLong:
-                retries += 1
                 print("\nEmail must be under 255 characters.")
                 time.sleep(1)
                 self.clear_screen()
 
             except ValidationError as e:
-                retries += 1
                 print(f"\nValidation Error: {e}")
                 time.sleep(1)
                 self.clear_screen()
