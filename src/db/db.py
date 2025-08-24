@@ -39,7 +39,6 @@ class TaskRepository:
     def __init__(self):
         self.collection = MongoHandler().collection
 
-    # Procedure
     async def add_task_to_user(self, email: str, task: dict):
         await self.collection.update_one(
             {"email": email},  # find the user
@@ -47,7 +46,6 @@ class TaskRepository:
             upsert=True,  # create user document if it doesn't exist
         )
 
-    # Procedure
     async def delete_task_for_user(self, email: str, task_id: str):
         """Remove a specific task from the user's task list based on task_id."""
         result = await self.collection.update_one(
@@ -63,7 +61,6 @@ class TaskRepository:
             return True
         return False
 
-    # Procedure
     async def replace_task_for_user(self, email: str, task_id: str, update: dict):
         """Replace a specific task for the user based on task_id."""
         result = await self.collection.update_one(
