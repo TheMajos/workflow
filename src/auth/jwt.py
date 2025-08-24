@@ -4,6 +4,7 @@ from src.utils.utils import save_jwt, grab_jwt
 from config import JWT_ALGORITHM, SECRET_KEY
 
 
+# could this just be a set of functions?
 class JWT:
 
     @staticmethod
@@ -55,6 +56,8 @@ class JWTManager:
         new_token = JWT.encode_jwt(self.email)
         self.token = new_token
 
+    # why not just return the whole payload, and let downstream
+    # handle how they would like to handle it?
     def _grab_email_from_jwt(self) -> str | None:
         """
         Attempt to extract the email claim from the current JWT.

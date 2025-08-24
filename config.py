@@ -1,3 +1,5 @@
+# this should be in src
+
 import os
 import redis.asyncio as redis
 from motor.motor_asyncio import AsyncIOMotorClient

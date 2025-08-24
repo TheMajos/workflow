@@ -2,6 +2,8 @@ import uuid
 from pydantic import BaseModel, ConfigDict, field_validator, Field
 from datetime import datetime
 
+# Errors and models should be divided into
+# their respective files
 
 class NameLength(ValueError):
     pass

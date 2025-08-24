@@ -4,7 +4,7 @@ from src.exc.excs import AuthenticationError
 from src.models import CreateTask, UpdateTask
 from pydantic import ValidationError
 
-
+# class name should be the same as filename
 class TaskService:
     def __init__(self, repo: TaskRepository, jwt_manager: JWTManager):
         self.repo = repo

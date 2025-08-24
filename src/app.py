@@ -2,6 +2,8 @@ import os
 import sys
 import time
 from pydantic import ValidationError
+# Prefixing with src for imports is redundant
+# once all src files are within the src folder
 from src.auth.auth import Authentication
 from src.exc.excs import (
     RateLimitError,
@@ -36,7 +38,7 @@ class TaskManagerApp:
     async def start(self):
         while True:
             choice = input("[1]: Login\n[2]: Register\n[3]: Exit\n\nChoose: ").strip()
-
+            # Couldn't you just clear screen here. Once and for all?
             if choice == "1":
                 self.clear_screen()
                 await self.login_screen()
@@ -68,6 +70,8 @@ class TaskManagerApp:
                 time.sleep(1)
                 self.clear_screen()
 
+            # Why not have these 2 errors in one , catch e
+            # and print(str(e))
             except RateLimitError:
                 print("\nYou are being rate-limited. Try again later.")
                 time.sleep(1.5)
@@ -100,6 +104,8 @@ class TaskManagerApp:
                 self.clear_screen()
                 await self.login_screen()
                 return
+            
+            # Same exception rules noted above, apply here
 
             except RateLimitError:
                 print("\nYou are being rate-limited. Try again later.")
@@ -148,6 +154,8 @@ class TaskManagerApp:
             print("[6]: Exit")
             choice = input("\nChoose an option: ").strip()
 
+            # if? why not use a map or if elif?    
+            
             if choice == "1":
                 await self.list_tasks()
 

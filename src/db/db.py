@@ -3,6 +3,7 @@ from typing import Optional
 from src.utils.utils import filter_non_expired_tasks
 
 
+# is this necessary?
 class MongoHandler:
     _instance = None
     _client = None
@@ -26,7 +27,7 @@ class MongoHandler:
     async def query(self, payload: dict) -> Optional[dict]:
         return await self.collection.find_one(payload)
 
-
+# Make sure definition of __new__ is well understood.
 class TaskRepository:
     _instance = None
     _client = None

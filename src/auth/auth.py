@@ -10,6 +10,7 @@ from src.utils.limiter import is_rate_limited
 from src.auth.jwt import JWT
 
 
+# could this just be a set of functions?
 class AuthUtilities:
     _instance = None
     _pwd_context = None
@@ -36,6 +37,7 @@ class AuthUtilities:
 
 class Authentication:
 
+    # why return bool if you're raising errors?
     @staticmethod
     async def register(email: str, password: str) -> bool:
         rl = await is_rate_limited("register", email)
@@ -52,6 +54,7 @@ class Authentication:
         await MongoHandler().insert({"email": email, "password": hashed})
         return True
 
+    # why return bool if you're raising errors?
     @staticmethod
     async def login(email: str, password: str) -> bool:
         if await is_rate_limited("login", email):
