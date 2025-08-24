@@ -1,7 +1,7 @@
 from src.auth.jwt import JWTManager
 from src.db.db import TaskRepository
-from src.exc.auth import AuthenticationError
-from src.models.task import CreateTask, UpdateTask
+from src.exc.excs import AuthenticationError
+from src.models import CreateTask, UpdateTask
 from pydantic import ValidationError
 
 

@@ -1,4 +1,4 @@
-from src.terminal.app import TaskManagerApp
+from src.app import TaskManagerApp
 
 
 if __name__ == "__main__":

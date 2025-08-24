@@ -3,7 +3,7 @@ import sys
 import time
 from pydantic import ValidationError
 from src.auth.auth import Authentication
-from src.exc.auth import (
+from src.exc.excs import (
     RateLimitError,
     UserDoesNotExists,
     UserExists,

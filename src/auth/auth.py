@@ -1,14 +1,11 @@
 from passlib.context import CryptContext
-from src.models.auth import UserLogin, UserRegister
+from src.models import UserRegister
 from src.db.db import MongoHandler
-from src.exc.auth import (
+from src.exc.excs import (
     UserExists,
     UserDoesNotExists,
-    PasswordTooShort,
-    InvalidEmail,
     RateLimitError,
 )
-from pydantic import ValidationError
 from src.utils.limiter import is_rate_limited
 from src.auth.jwt import JWT
 
