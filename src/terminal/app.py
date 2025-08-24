@@ -17,9 +17,6 @@ from src.db.db import TaskRepository
 from src.auth.jwt import JWTManager
 
 
-MAX_RETRIES = 3
-
-
 class TaskManagerApp:
     def __init__(self):
         self.auth = Authentication()
@@ -52,7 +49,6 @@ class TaskManagerApp:
                 self.clear_screen()
 
     async def login_screen(self):
-        retries = 0
 
         while True:
             print("--- Login ---")
